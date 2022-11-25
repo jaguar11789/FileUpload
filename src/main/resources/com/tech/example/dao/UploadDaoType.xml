@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 컨트롤 시프트 x는 소문자를 대문자로 바꿔준다 -->
+
+<mapper namespace="com.tech.example.dao.UploadDaoType">
+	<insert id="userinserts">
+		INSERT INTO T_USER("id", "pwd", "name", "level", "desc", "reg_date")
+		VALUES(#{id},#{pwd},#{name},#{level},#{desc},#{reg_date});
+	</insert>
+	<select id="userinfo" resultType="com.tech.example.dto.UserDto">
+		SELECT "id", "pwd", "name", "level", "desc", "reg_date" FROM T_USER
+	</select>
+	
+	<update id="deleteinfo">
+		DELETE FROM T_USER
+	</update>
+</mapper>
